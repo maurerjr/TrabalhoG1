@@ -5,10 +5,13 @@ public class Chamados {
 	public int numChamado;
 	public String descChamado;
 	public int urgencia;
+	public int tecnico;
+	public int tecnicoCo;
+	public boolean situacao;
 	
 	public void lerChamado(int nChamado){
 		System.out.println("Descrição do problema: ");
-		descChamado = tc.nextLine();
+		descChamado = tc.next();
 		System.out.println("Qual o nivel de urgencia: \n 1 - Baixa\n 2 - Media\n 3 - Alta\n 4 - Moderada\n");
 		
 		urgencia = tc.nextInt();
@@ -38,19 +41,25 @@ public class Chamados {
 	}
 
 	
-	public void mostrarChamado(){
-			System.out.println("Numero do chamado: "+numChamado);
-			System.out.println("Problema: "+descChamado);
+	public String mostrarChamado(){
+		
+		return  "Numero do chamado: "+numChamado +"Problema: "+descChamado;
+			
 	}
 
 
 	public Chamados modificarChamado() {
 		System.out.println("Descrição do problema: ");
-		descChamado = tc.nextLine();
+		descChamado = tc.next();
 		System.out.println("Nivel de urgencia: ");
 		urgencia = tc.nextInt();
 		return this;
 	}
 	
-	
+	public void lerTecnico(){
+		System.out.println("\n Digite numero do tecnico");
+		tecnico = tc.nextInt();
+		situacao = false;
+	}
+
 }

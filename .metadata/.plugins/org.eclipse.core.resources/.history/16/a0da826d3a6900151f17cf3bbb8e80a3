@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Login {
+	ArrayList<Gerentes> gerente = new ArrayList<>();
+	Scanner tc = new Scanner(System.in);
+
+	
+	public boolean logarGerente(String a)
+	{
+		System.out.println("\nDigite login:");
+		String login = tc.next();
+		System.out.println("\nDigite Senha");
+		String senha = tc.next();
+		Gerentes g = new Gerentes();
+
+		  for(int i=0; i< cliente.size(); i++){
+		 if ((gerente.get(i).getLogin().equals(login) == (true)) && ((gerente.get(i).getSenha().equals(senha))== (true))){
+		    	
+		    		System.out.println("\n Login feito com sucesso");
+		return true;
+		 }
+	}
+	
+	
+}

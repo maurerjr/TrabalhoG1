@@ -1,0 +1,221 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner tc = new Scanner(System.in);
+		ArrayList<Clientes> cliente = new ArrayList<>();
+		ArrayList<Chamados> chamado = new ArrayList<>();
+		ArrayList<Tecnicos> tecnico = new ArrayList<>();
+		ArrayList<Gerentes> gerente = new ArrayList<>();
+		int op1; 
+		int op2; 
+		int op3;
+		int contchamados = 0;
+			
+		
+		do{
+			System.out.println("1 - Cliente\n2 - Tecnico\n3 - Gerente\n0 - Sair");
+			
+			
+
+			    	
+			    	
+			   
+			
+					
+			op1 = tc.nextInt();
+			switch (op1) {
+			case 1:{ //               CLIENTE
+				
+				System.out.println("\nDigite login:");
+				String login = tc.next();
+				System.out.println("\nDigite Senha");
+				String senha = tc.next();
+				  for(int i=0; i< cliente.size(); i++){
+				 if(login.equals(cliente.get(i)) && senha.equals(cliente.get(i))){
+			
+				    		System.out.println("\n Login feito com sucesso");
+				
+				do{
+					System.out.println("\n\n 1 - Cadastrar chamados\n 2 - Ver chamados\n 3 - Editar chamados\n 0 - Voltar\n");
+							
+					op2 = tc.nextInt();
+					switch (op2) {
+					case 1:{
+						Chamados c = new Chamados();
+						contchamados++;
+						c.lerChamado(contchamados);
+						chamado.add(c);
+						break;
+					}						
+					case 2:{
+						Chamados c = new Chamados();
+						for (int l = 0; l < chamado.size(); l++) {
+							c=chamado.get(l);
+							c.mostrarChamado();
+						}
+						break;
+					}
+					
+					case 3:{
+						Chamados c = new Chamados();
+						System.out.println("Qual chamado quer modificar: ");
+						int modChamados = tc.nextInt();
+						chamado.set(modChamados-1, c.modificarChamado());
+						
+						break;
+					}	
+					default:
+						break;
+					}
+				}while(op2!=0);
+				break;
+			}
+			
+	
+			
+	else{
+		System.out.println("Login ou senha invalida");
+		break;
+}
+}
+
+			}
+			case 2:{//   TECNICO 
+				
+				System.out.println("\nDigite login:");
+				String login = tc.next();
+				System.out.println("\nDigite Senha");
+				String senha = tc.next();
+				  for(int i=0; i< cliente.size(); i++){
+				 if(login.equals(tecnico.get(i)) && senha.equals(tecnico.get(i))){
+				    		System.out.println("\n Login feito com sucesso");
+				do {
+					
+					System.out.println("\n \n 1 - Ver tarefas pendentes\n 2 - Ver tarefas realizadas\n 3 - Finalizar tarefas\n 0 - Voltar\n");
+					op2=tc.nextInt();
+					switch (op2) {
+		
+						
+						
+					case 1: {
+						Tecnicos t = new Tecnicos();
+							for (int l = 0; l < tecnico.size(); l++) {
+								System.out.println("\n");
+								t.mostrar();
+							}
+						break;
+					}
+						
+					case 3: break;				
+					
+					}
+				} while (op2!=0);
+			break;
+			}
+				    	
+				    	else{
+				    		System.out.println("Login ou senha invalida");
+				    		break;
+				    }
+				    }
+				    }
+			
+					
+			case 3:{ //  GERENTE 
+				
+				do{
+					System.out.println("\n \n 1 - Logar Gerente \n 2 - Cadastrar Gerente \n 0 - Sair");
+					op3= tc.nextInt();
+					switch(op3){
+					
+					case 1: {
+					
+					System.out.println("\nDigite login:");
+					String login = tc.next();
+					System.out.println("\nDigite Senha");
+					String senha = tc.next();
+					Gerentes g = new Gerentes();
+
+					  for(int i=0; i< cliente.size(); i++){
+					 if ((gerente.get(i).equals(login) ==true)&& ((gerente.get(i).equals(senha))==true)){
+					    	
+					    		System.out.println("\n Login feito com sucesso");
+				
+				
+				
+				do{
+					System.out.println("\n\n 1 - Cadastrar Cliente\n 2 - Mostrar Clientes\n 3 - Ver tarefas pendentes\n 4 - Ver tarefas realizadas\n 5 - Finalizar tarefas\n 6 - Mostrar Gerentes\n 0 - Voltar\n ");
+							
+					op2=tc.nextInt();
+					switch (op2) {
+					case 1:{
+						Clientes c = new Clientes();
+						c.ler();
+						cliente.add(c);
+						break;
+					}
+					case 2:{
+						Clientes c = new Clientes();
+						for (int l = 0; l < cliente.size(); l++) {
+							c=cliente.get(l);
+							
+							c.mostrar();
+						}
+					break;
+					}
+					case 3:{
+						Chamados c = new Chamados();
+						for (int l = 0; l < chamado.size(); l++) {
+							c.mostrarChamado();
+						}
+						break;
+					}
+				
+					case 6:{
+						
+						for (int l = 0; l < gerente.size(); l++) {
+							g=gerente.get(l);
+							g.mostraGerente();
+						}
+						break;	
+					}
+					default:
+						System.out.println("OPÇÃO INVALIDA.");
+						break;
+					}
+					}while (op2!=0);
+				break;
+			}
+			else
+			{
+				System.out.println("Login ou senha invalida");
+	    		break;
+	    }
+	    }
+					  break; 
+			}
+			
+			case 2: {
+				Gerentes g = new Gerentes();
+				g.cadastraGerente();
+				gerente.add(g);
+				break;
+			}
+			
+			
+			case 0:
+				
+				break;
+			
+		
+			}
+		}while(op3!=0);
+			}
+			}
+			}while(op1!=0);
+	tc.close();
+			}
+}
