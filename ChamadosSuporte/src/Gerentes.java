@@ -5,6 +5,15 @@ public class Gerentes {
 	Clientes c = new Clientes();
 	Tecnicos t = new Tecnicos();
 	Chamados ch = new Chamados();
+	private int id;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	private String nome;
 	private String login;
 	private String senha;
